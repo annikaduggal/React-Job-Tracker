@@ -58,7 +58,22 @@ function JobCard({ job, deleteJob, updateJob }) {
                 <>
                     <h3>{job.company}</h3>
                     <p>{job.role}</p>
-                    <p>Status: {job.status}</p>
+                    <p>
+                        Status:
+                        <span style={{
+                            marginLeft: "0.5rem",
+                            padding: "0.2rem 0.6rem",
+                            borderRadius: "6px",
+                            fontSize: "0.75rem",
+                            background:
+                                job.status === "Applied" ? "#e0e0e0" :
+                                    job.status === "Interview" ? "#d0ebff" :
+                                        job.status === "Offer" ? "#d3f9d8" :
+                                            "#ffe3e3"
+                        }}>
+                        {job.status}
+                        </span>
+                    </p>
                     <p>{job.notes}</p>
 
                     <button onClick={() => setIsEditing(true)}>Edit</button>
